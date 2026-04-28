@@ -84,12 +84,11 @@ export default function AdminRelations() {
     if (!semesterId) return;
 
     try {
-      const [classesRes, studentsRes, teachersRes] = await Promise.all([
-        fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/classes/${semesterId}`),
-        fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/students/${semesterId}`),
-        fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/teachers/${semesterId}`)
-      ]);
-
+const [classesRes, studentsRes, teachersRes] = await Promise.all([
+  fetch(`https://school-portal-backend-new.onrender.com/relations/classes/${semesterId}`),
+  fetch(`https://school-portal-backend-new.onrender.com/relations/students/${semesterId}`),
+  fetch(`https://school-portal-backend-new.onrender.com/relations/teachers/${semesterId}`)
+]);
       const classesData = await classesRes.json();
       const studentsData = await studentsRes.json();
       const teachersData = await teachersRes.json();
