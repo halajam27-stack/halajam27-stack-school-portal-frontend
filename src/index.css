@@ -1,0 +1,240 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700;800&display=swap');
+
+@layer base {
+  :root {
+    /* Soft Pastel School Theme - Child Friendly */
+    --background: 35 100% 98%;
+    --foreground: 220 30% 25%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 220 30% 25%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 30% 25%;
+
+    /* Soft Peach Primary */
+    --primary: 30 90% 70%;
+    --primary-foreground: 220 30% 20%;
+
+    /* Baby Blue Secondary */
+    --secondary: 205 80% 92%;
+    --secondary-foreground: 205 50% 30%;
+
+    /* Soft Yellow Muted */
+    --muted: 45 100% 95%;
+    --muted-foreground: 220 20% 45%;
+
+    /* Soft Lavender Accent */
+    --accent: 280 60% 92%;
+    --accent-foreground: 280 40% 30%;
+
+    /* Soft Mint for Success */
+    --success: 150 60% 88%;
+    --success-foreground: 150 50% 25%;
+
+    /* Soft Coral for Destructive */
+    --destructive: 0 70% 90%;
+    --destructive-foreground: 0 60% 40%;
+
+    --border: 30 30% 88%;
+    --input: 30 30% 92%;
+    --ring: 30 90% 70%;
+
+    --radius: 1rem;
+
+    /* Custom School Colors */
+    --peach: 30 100% 94%;
+    --peach-dark: 30 80% 75%;
+    --baby-blue: 205 80% 94%;
+    --baby-blue-dark: 205 60% 70%;
+    --soft-yellow: 45 100% 94%;
+    --soft-yellow-dark: 45 80% 70%;
+    --soft-pink: 340 70% 94%;
+    --soft-green: 150 60% 92%;
+    --soft-purple: 280 60% 94%;
+
+    /* Gradients */
+    --gradient-primary: linear-gradient(135deg, hsl(30 100% 94%), hsl(45 100% 94%));
+    --gradient-secondary: linear-gradient(135deg, hsl(205 80% 94%), hsl(280 60% 94%));
+    --gradient-warm: linear-gradient(135deg, hsl(30 100% 94%), hsl(340 70% 94%));
+    --gradient-hero: linear-gradient(180deg, hsl(35 100% 98%) 0%, hsl(205 80% 96%) 100%);
+
+    /* Shadows */
+    --shadow-soft: 0 4px 20px -4px hsl(30 50% 50% / 0.15);
+    --shadow-card: 0 8px 30px -8px hsl(30 50% 50% / 0.12);
+    --shadow-hover: 0 12px 40px -10px hsl(30 50% 50% / 0.2);
+
+    --sidebar-background: 35 100% 98%;
+    --sidebar-foreground: 220 30% 25%;
+    --sidebar-primary: 30 90% 70%;
+    --sidebar-primary-foreground: 220 30% 20%;
+    --sidebar-accent: 205 80% 92%;
+    --sidebar-accent-foreground: 205 50% 30%;
+    --sidebar-border: 30 30% 88%;
+    --sidebar-ring: 30 90% 70%;
+  }
+
+  .dark {
+    --background: 220 25% 12%;
+    --foreground: 35 100% 95%;
+
+    --card: 220 25% 16%;
+    --card-foreground: 35 100% 95%;
+
+    --popover: 220 25% 16%;
+    --popover-foreground: 35 100% 95%;
+
+    --primary: 30 80% 65%;
+    --primary-foreground: 220 30% 10%;
+
+    --secondary: 205 40% 25%;
+    --secondary-foreground: 205 80% 90%;
+
+    --muted: 220 20% 20%;
+    --muted-foreground: 220 15% 65%;
+
+    --accent: 280 30% 25%;
+    --accent-foreground: 280 60% 90%;
+
+    --destructive: 0 50% 35%;
+    --destructive-foreground: 0 70% 95%;
+
+    --border: 220 20% 22%;
+    --input: 220 20% 22%;
+    --ring: 30 80% 65%;
+
+    --sidebar-background: 220 25% 14%;
+    --sidebar-foreground: 35 100% 95%;
+    --sidebar-primary: 30 80% 65%;
+    --sidebar-primary-foreground: 220 30% 10%;
+    --sidebar-accent: 205 40% 25%;
+    --sidebar-accent-foreground: 205 80% 90%;
+    --sidebar-border: 220 20% 22%;
+    --sidebar-ring: 30 80% 65%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-cairo antialiased;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer utilities {
+  .font-cairo {
+    font-family: 'Cairo', sans-serif;
+  }
+
+  .gradient-primary {
+    background: var(--gradient-primary);
+  }
+
+  .gradient-secondary {
+    background: var(--gradient-secondary);
+  }
+
+  .gradient-warm {
+    background: var(--gradient-warm);
+  }
+
+  .gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-hover {
+    box-shadow: var(--shadow-hover);
+  }
+
+  .text-gradient {
+    background: linear-gradient(135deg, hsl(30 80% 50%), hsl(205 60% 45%));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  /* RTL Support */
+  [dir="rtl"] {
+    text-align: right;
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-float-delayed {
+    animation: float 6s ease-in-out infinite;
+    animation-delay: 2s;
+  }
+
+  .animate-bounce-soft {
+    animation: bounce-soft 2s ease-in-out infinite;
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes bounce-soft {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes slide-up {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-slide-up {
+    animation: slide-up 0.5s ease-out forwards;
+  }
+
+  .animate-slide-up-delay-1 {
+    animation: slide-up 0.5s ease-out 0.1s forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-up-delay-2 {
+    animation: slide-up 0.5s ease-out 0.2s forwards;
+    opacity: 0;
+  }
+
+  .animate-slide-up-delay-3 {
+    animation: slide-up 0.5s ease-out 0.3s forwards;
+    opacity: 0;
+  }
+}
