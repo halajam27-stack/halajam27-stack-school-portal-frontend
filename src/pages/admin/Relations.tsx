@@ -84,11 +84,12 @@ export default function AdminRelations() {
     if (!semesterId) return;
 
     try {
-const [classesRes, studentsRes, teachersRes] = await Promise.all([
+  const [classesRes, studentsRes, teachersRes] = await Promise.all([
   fetch(`https://school-portal-backend-new.onrender.com/relations/classes/${semesterId}`),
   fetch(`https://school-portal-backend-new.onrender.com/relations/students/${semesterId}`),
   fetch(`https://school-portal-backend-new.onrender.com/relations/teachers/${semesterId}`)
 ]);
+
       const classesData = await classesRes.json();
       const studentsData = await studentsRes.json();
       const teachersData = await teachersRes.json();
@@ -126,7 +127,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/section-students/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/relations/section-students/${semesterId}`);
       const data = await res.json();
 
       setSectionStudents(
@@ -152,7 +153,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/subject-teachers/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/relations/subject-teachers/${semesterId}`);
       const data = await res.json();
 
       setSubjectTeachers(
@@ -189,7 +190,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
       return;
     }
 
-    fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/sections/${ssClass}/${semesterId}`)
+    fetch(`http://localhost:3000/relations/sections/${ssClass}/${semesterId}`)
       .then((res) => res.json())
       .then((data) => {
         setSsSections(
@@ -218,7 +219,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
       return;
     }
 
-    fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/sections/${stClass}/${semesterId}`)
+    fetch(`http://localhost:3000/relations/sections/${stClass}/${semesterId}`)
       .then((res) => res.json())
       .then((data) => {
         setStSections(
@@ -230,7 +231,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
         );
       });
 
-    fetch(`https://school-portal-backend-new-cfr6.onrender.com/relations/subjects/${stClass}/${semesterId}`)
+    fetch(`http://localhost:3000/relations/subjects/${stClass}/${semesterId}`)
       .then((res) => res.json())
       .then((data) => {
         setStSubjects(
@@ -261,7 +262,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
     }
 
     try {
-      const res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/relations/section-students', {
+      const res = await fetch('http://localhost:3000/relations/section-students', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -304,7 +305,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
 
     try {
       const res = await fetch(
-        `https://school-portal-backend-new-cfr6.onrender.com/relations/section-students/${item.sectionId}/${item.studentId}/${semesterId}`,
+        `http://localhost:3000/relations/section-students/${item.sectionId}/${item.studentId}/${semesterId}`,
         { method: 'DELETE' }
       );
 
@@ -345,7 +346,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
     }
 
     try {
-      const res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/relations/subject-teachers', {
+      const res = await fetch('http://localhost:3000/relations/subject-teachers', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -390,7 +391,7 @@ const [classesRes, studentsRes, teachersRes] = await Promise.all([
 
     try {
       const res = await fetch(
-        `https://school-portal-backend-new-cfr6.onrender.com/relations/subject-teachers/${item.sectionId}/${item.subjectId}/${item.teacherId}/${semesterId}`,
+        `http://localhost:3000/relations/subject-teachers/${item.sectionId}/${item.subjectId}/${item.teacherId}/${semesterId}`,
         { method: 'DELETE' }
       );
 

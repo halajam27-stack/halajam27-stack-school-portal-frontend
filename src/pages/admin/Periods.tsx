@@ -76,7 +76,7 @@ export default function AdminPeriods() {
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/periods/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/periods/${semesterId}`);
       const data = await res.json();
 
       const formatted = data.map((p: any) => ({
@@ -102,7 +102,7 @@ export default function AdminPeriods() {
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/classes/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/classes/${semesterId}`);
       const data = await res.json();
 
       const sorted = data.sort((a: any, b: any) => Number(a.ClassID) - Number(b.ClassID));
@@ -141,8 +141,8 @@ export default function AdminPeriods() {
     const fetchRelatedData = async () => {
       try {
         const [sectionsRes, subjectsRes] = await Promise.all([
-          fetch(`https://school-portal-backend-new-cfr6.onrender.com/periods/sections/${viewClass}/${semesterId}`),
-          fetch(`https://school-portal-backend-new-cfr6.onrender.com/periods/subjects/${viewClass}/${semesterId}`),
+          fetch(`http://localhost:3000/periods/sections/${viewClass}/${semesterId}`),
+          fetch(`http://localhost:3000/periods/subjects/${viewClass}/${semesterId}`),
         ]);
 
         const sectionsData = await sectionsRes.json();
@@ -201,7 +201,7 @@ export default function AdminPeriods() {
     }
 
     try {
-      const res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/periods', {
+      const res = await fetch('http://localhost:3000/periods', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -251,7 +251,7 @@ export default function AdminPeriods() {
     }
 
     try {
-      const res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/periods', {
+      const res = await fetch('http://localhost:3000/periods', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -296,7 +296,7 @@ export default function AdminPeriods() {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/periods/${id}`, {
+      const res = await fetch(`http://localhost:3000/periods/${id}`, {
         method: 'DELETE',
       });
 

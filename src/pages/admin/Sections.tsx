@@ -31,11 +31,11 @@ export default function AdminSections() {
     if (!selectedSemester) return;
 
     try {
-      const resClasses = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/classes?semesterId=${selectedSemester}`);
+      const resClasses = await fetch(`http://localhost:3000/classes?semesterId=${selectedSemester}`);
       const dataClasses = await resClasses.json();
       setClasses(dataClasses);
 
-      const resSections = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/sections?semesterId=${selectedSemester}`);
+      const resSections = await fetch(`http://localhost:3000/sections?semesterId=${selectedSemester}`);
       const dataSections = await resSections.json();
 
       const formatted = dataSections.map((s: any) => ({
@@ -67,7 +67,7 @@ export default function AdminSections() {
     }
 
     try {
-      const res = await fetch("https://school-portal-backend-new-cfr6.onrender.com/sections", {
+      const res = await fetch("http://localhost:3000/sections", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -104,7 +104,7 @@ export default function AdminSections() {
     if (!editingName.trim()) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/sections/${editingId}`, {
+      const res = await fetch(`http://localhost:3000/sections/${editingId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -132,7 +132,7 @@ export default function AdminSections() {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/sections/${id}`, {
+      const res = await fetch(`http://localhost:3000/sections/${id}`, {
         method: "DELETE"
       });
 

@@ -42,7 +42,7 @@ export default function AdminTeachers() {
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/teachers/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/teachers/${semesterId}`);
       const data = await res.json();
 
       const formatted = data.map((teacher: any, index: number) => ({
@@ -53,7 +53,7 @@ export default function AdminTeachers() {
         phone: teacher.Phone || '',
         hireDate: teacher.HireDate ? String(teacher.HireDate).split('T')[0] : '',
         photo: teacher.Photo
-          ? `https://school-portal-backend-new-cfr6.onrender.com/uploads/teachers/${teacher.Photo}`
+          ? `http://localhost:3000/uploads/teachers/${teacher.Photo}`
           : '',
       }));
 
@@ -111,14 +111,14 @@ export default function AdminTeachers() {
         if (!oldTeacher) return;
 
         res = await fetch(
-          `https://school-portal-backend-new-cfr6.onrender.com/teachers/${oldTeacher.naturalId}/${semesterId}`,
+          `http://localhost:3000/teachers/${oldTeacher.naturalId}/${semesterId}`,
           {
             method: 'PUT',
             body: formData,
           }
         );
       } else {
-        res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/teachers', {
+        res = await fetch('http://localhost:3000/teachers', {
           method: 'POST',
           body: formData,
         });
@@ -173,7 +173,7 @@ export default function AdminTeachers() {
 
     try {
       const res = await fetch(
-        `https://school-portal-backend-new-cfr6.onrender.com/teachers/${teacher.naturalId}/${semesterId}`,
+        `http://localhost:3000/teachers/${teacher.naturalId}/${semesterId}`,
         { method: 'DELETE' }
       );
 

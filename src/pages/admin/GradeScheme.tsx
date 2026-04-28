@@ -36,7 +36,7 @@ export default function AdminGradeScheme() {
     }
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/grade-scheme/${selectedSemester}`);
+      const res = await fetch(`http://localhost:3000/grade-scheme/${selectedSemester}`);
       const data = await res.json();
 
       if (!res.ok) {
@@ -95,7 +95,7 @@ export default function AdminGradeScheme() {
     }
 
     try {
-      const res = await fetch("https://school-portal-backend-new-cfr6.onrender.com/grade-scheme", {
+      const res = await fetch("http://localhost:3000/grade-scheme", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -153,7 +153,7 @@ export default function AdminGradeScheme() {
     }
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/grade-scheme/${editingId}`, {
+      const res = await fetch(`http://localhost:3000/grade-scheme/${editingId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -194,7 +194,7 @@ export default function AdminGradeScheme() {
 
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/grade-scheme/${id}`, {
+      const res = await fetch(`http://localhost:3000/grade-scheme/${id}`, {
         method: "DELETE"
       });
 

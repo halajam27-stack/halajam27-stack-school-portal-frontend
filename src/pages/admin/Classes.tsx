@@ -26,8 +26,7 @@ export default function AdminClasses() {
   const fetchClasses = () => {
     if (!selectedSemester) return;
 
-    fetch(`https://school-portal-backend-new-cfr6.onrender.com/classes?semesterId=${selectedSemester}`)
-      .then(res => res.json())
+fetch('https://school-portal-backend-new.onrender.com/classes')      .then(res => res.json())
       .then(data => {
         const sorted = data.sort((a: any, b: any) => a.ClassID - b.ClassID);
         const formatted = data.map((c: any) => ({
@@ -58,7 +57,7 @@ export default function AdminClasses() {
     }
 
     try {
-      const res = await fetch("https://school-portal-backend-new-cfr6.onrender.com/classes", {
+      const res = await fetch("http://localhost:3000/classes", {
         method: "POST",
         headers: {
           "Content-Type": "application/json"
@@ -97,7 +96,7 @@ export default function AdminClasses() {
     if (!editingName.trim()) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/classes/${editingId}`, {
+      const res = await fetch(`http://localhost:3000/classes/${editingId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json"
@@ -127,7 +126,7 @@ export default function AdminClasses() {
   // 🗑️ حذف صف
   const handleDelete = async (id: number) => {
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/classes/${id}`, {
+      const res = await fetch(`http://localhost:3000/classes/${id}`, {
         method: "DELETE"
       });
 

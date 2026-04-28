@@ -41,7 +41,7 @@ export default function AdminStudents() {
     if (!semesterId) return;
 
     try {
-      const res = await fetch(`https://school-portal-backend-new-cfr6.onrender.com/students/${semesterId}`);
+      const res = await fetch(`http://localhost:3000/students/${semesterId}`);
       const data = await res.json();
 
       const formatted = data.map((student: any, index: number) => ({
@@ -93,7 +93,7 @@ export default function AdminStudents() {
         if (!oldStudent) return;
 
         const res = await fetch(
-          `https://school-portal-backend-new-cfr6.onrender.com/students/${oldStudent.naturalId}/${semesterId}`,
+          `http://localhost:3000/students/${oldStudent.naturalId}/${semesterId}`,
           {
             method: 'PUT',
             headers: {
@@ -125,7 +125,7 @@ export default function AdminStudents() {
           description: 'تم تعديل بيانات الطالب بنجاح'
         });
       } else {
-        const res = await fetch('https://school-portal-backend-new-cfr6.onrender.com/students', {
+        const res = await fetch('http://localhost:3000/students', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -188,7 +188,7 @@ export default function AdminStudents() {
 
     try {
       const res = await fetch(
-        `https://school-portal-backend-new-cfr6.onrender.com/students/${student.naturalId}/${semesterId}`,
+        `http://localhost:3000/students/${student.naturalId}/${semesterId}`,
         { method: 'DELETE' }
       );
 
